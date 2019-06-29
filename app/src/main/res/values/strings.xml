@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Coursera_Course2_TestApp3</string>
+    <string name="text_for_TextView">Loading ...</string>
+    <string name="text_for_finish">Ready</string>
+</resources>
