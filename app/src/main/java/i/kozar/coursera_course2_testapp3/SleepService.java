@@ -2,6 +2,7 @@ package i.kozar.coursera_course2_testapp3;
 
 import android.app.Service;
 import android.content.Intent;
+import android.content.ServiceConnection;
 import android.os.Binder;
 import android.os.IBinder;
 
@@ -14,6 +15,7 @@ public class SleepService extends Service {
     // Binder given to clients
     private final IBinder mBinder = new LocalBinder();
     ScheduledExecutorService mScheduledExecutorService;
+    boolean finish = false;
 
     public SleepService() {
     }
@@ -29,10 +31,15 @@ public class SleepService extends Service {
         mScheduledExecutorService.submit(new Runnable() {
             @Override
             public void run() {
-                Thread.sleep(5);
             }
         });
         return mBinder;
+    }
+
+    @Override
+    public void unbindService(ServiceConnection conn) {
+
+        super.unbindService(conn);
     }
 
     @Override

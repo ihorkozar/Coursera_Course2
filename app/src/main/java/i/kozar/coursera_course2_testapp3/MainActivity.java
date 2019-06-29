@@ -26,6 +26,16 @@ public class MainActivity extends AppCompatActivity {
     private BroadcastReceiver mLocalBroadcast = new BroadcastReceiver(){
         @Override
         public void onReceive(Context context, Intent intent) {
+            /** Пытался какой-то костыль навесить
+             * boolean finish = intent.getBooleanExtra("finnish", false);
+            if (finish){
+                unbindService(mConnection);
+                mBound = false;
+                buttonStart.setEnabled(true);
+                progressBar.setVisibility(ProgressBar.INVISIBLE);
+                textView.setText(R.string.text_for_finish);
+            }
+             **/
 
         }
     };
@@ -69,9 +79,6 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public void onServiceDisconnected(ComponentName arg0) {
             mBound = false;
-            buttonStart.setEnabled(true);
-            progressBar.setVisibility(ProgressBar.INVISIBLE);
-            textView.setText(R.string.text_for_finish);
         }
     };
 }
